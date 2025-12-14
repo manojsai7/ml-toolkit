@@ -1,0 +1,34 @@
+# Base configuration for ML experiments
+seed: 42
+device: cpu
+
+data:
+  data_dir: data
+  batch_size: 32
+  num_workers: 4
+  train_split: 0.8
+  val_split: 0.1
+  test_split: 0.1
+
+model:
+  model_name: resnet50
+  num_classes: 10
+  pretrained: true
+  dropout: 0.5
+
+training:
+  epochs: 10
+  learning_rate: 0.001
+  optimizer: adam
+  weight_decay: 0.0001
+  scheduler: cosine
+  early_stopping:
+    patience: 5
+    min_delta: 0.001
+
+logging:
+  experiment_name: default_experiment
+  log_dir: logs
+  backend: local  # Options: local, mlflow, wandb
+  save_checkpoints: true
+  checkpoint_dir: checkpoints
