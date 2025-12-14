@@ -28,13 +28,13 @@ def main():
     )
 
     print("Data Config:")
-    print(data_config.model_dump_json(indent=2))
+    print(data_config.model_dump())
 
     print("\nModel Config:")
-    print(model_config.model_dump_json(indent=2))
+    print(model_config.model_dump())
 
     print("\nTraining Config:")
-    print(training_config.model_dump_json(indent=2))
+    print(training_config.model_dump())
 
     # Load config from YAML
     print("\n" + "=" * 50)

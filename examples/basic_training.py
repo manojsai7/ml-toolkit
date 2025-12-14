@@ -56,7 +56,7 @@ def main():
 
     # Initialize logger
     logger = ExperimentLogger("basic_training_example", backend="local")
-    logger.log_params(config.dict())
+    logger.log_params(config.model_dump())
 
     # Create trainer
     trainer = Trainer(

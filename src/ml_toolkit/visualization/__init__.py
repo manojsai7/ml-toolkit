@@ -111,7 +111,7 @@ def plot_metrics_comparison(
     plt.show()
 
 
-def setup_plotting_style(style: str = "seaborn-v0_8-darkgrid") -> None:
+def setup_plotting_style(style: str = "seaborn-v0_8") -> None:
     """
     Setup matplotlib plotting style.
 
@@ -120,9 +120,13 @@ def setup_plotting_style(style: str = "seaborn-v0_8-darkgrid") -> None:
     """
     try:
         plt.style.use(style)
-    except:
-        # Fallback to default if style not available
-        sns.set_theme()
+    except (OSError, KeyError):
+        # Fallback to seaborn default if style not available
+        try:
+            sns.set_theme()
+        except Exception:
+            # Use matplotlib defaults as last resort
+            pass
 
     plt.rcParams["figure.figsize"] = (12, 6)
     plt.rcParams["font.size"] = 10
