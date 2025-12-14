@@ -86,7 +86,7 @@ def test_handle_missing_values_mean():
     
     assert not result['a'].isna().any()
     assert not result['b'].isna().any()
-    assert result['a'].iloc[2] == df['a'].mean()
+    assert np.isclose(result['a'].iloc[2], df['a'].mean())
 
 
 def test_handle_missing_values_drop():

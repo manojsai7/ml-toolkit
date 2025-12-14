@@ -5,6 +5,7 @@ Visualization utilities for plotting and metrics visualization
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import pandas as pd
 from typing import Optional, List, Dict, Any
 from pathlib import Path
 
@@ -155,8 +156,6 @@ def plot_correlation_matrix(
         title: Plot title
         save_path: Path to save the plot (optional)
     """
-    import pandas as pd
-    
     if isinstance(data, pd.DataFrame):
         corr = data.corr()
     else:
@@ -192,8 +191,6 @@ def plot_distributions(
         bins: Number of bins for histograms
         save_path: Path to save the plot (optional)
     """
-    import pandas as pd
-    
     if columns is None:
         columns = data.select_dtypes(include=[np.number]).columns.tolist()
     
@@ -237,8 +234,6 @@ def plot_scatter_matrix(
         figsize: Figure size
         save_path: Path to save the plot (optional)
     """
-    import pandas as pd
-    
     if columns is None:
         columns = data.select_dtypes(include=[np.number]).columns.tolist()
     

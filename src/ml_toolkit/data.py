@@ -140,7 +140,11 @@ def handle_missing_values(
     elif strategy == "median":
         df_copy[columns] = df_copy[columns].fillna(df_copy[columns].median())
     elif strategy == "mode":
-        df_copy[columns] = df_copy[columns].fillna(df_copy[columns].mode().iloc[0])
+        for col in columns:
+            mode_values = df_copy[col].mode()
+            if len(mode_values) > 0:
+                df_copy[col] = df_copy[col].fillna(mode_values.iloc[0])
+            # If mode is empty (all NaN), leave as is
     else:
         raise ValueError(f"Unknown strategy: {strategy}")
     

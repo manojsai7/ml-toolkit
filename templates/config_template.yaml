@@ -1,7 +1,5 @@
-"""
-Project Configuration Template
-Example configuration file for ML projects
-"""
+# Project Configuration Template
+# Example configuration file for ML projects
 
 project:
   name: "my_ml_project"
