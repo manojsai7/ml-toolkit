@@ -70,8 +70,8 @@ def test_scale_features_minmax():
     
     assert X_train_scaled.shape == X_train.shape
     assert X_test_scaled.shape == X_test.shape
-    assert X_train_scaled.min() >= 0
-    assert X_train_scaled.max() <= 1
+    assert X_train_scaled.min() >= -1e-10  # Allow for floating point precision
+    assert X_train_scaled.max() <= 1 + 1e-10  # Allow for floating point precision
 
 
 def test_handle_missing_values_mean():

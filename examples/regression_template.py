@@ -39,7 +39,7 @@ def prepare_data(config):
     )
     
     # Scale features
-    X_train_scaled, X_val_scaled, X_test_scaled, scaler = scale_features(
+    X_train_scaled, X_test_scaled, X_val_scaled, scaler = scale_features(
         X_train, X_test, X_val,
         method=config.get("preprocessing.scaling_method")
     )
