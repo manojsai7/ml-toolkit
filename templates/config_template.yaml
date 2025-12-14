@@ -1,0 +1,46 @@
+"""
+Project Configuration Template
+Example configuration file for ML projects
+"""
+
+project:
+  name: "my_ml_project"
+  version: "0.1.0"
+  description: "My Machine Learning Project"
+  author: "Your Name"
+
+data:
+  train_path: "data/train.csv"
+  test_path: "data/test.csv"
+  target_column: "target"
+  test_size: 0.2
+  val_size: 0.1
+  random_state: 42
+
+preprocessing:
+  scaling_method: "standard"  # Options: "standard", "minmax"
+  handle_missing: "mean"      # Options: "mean", "median", "mode", "drop"
+
+model:
+  type: "classifier"  # Options: "classifier", "regressor"
+  algorithm: "random_forest"
+  random_state: 42
+  hyperparameters:
+    n_estimators: 100
+    max_depth: null
+    min_samples_split: 2
+    min_samples_leaf: 1
+
+training:
+  cv_folds: 5
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1_score"
+
+output:
+  model_path: "models/model.pkl"
+  results_path: "results/"
+  plots_path: "plots/"
+  logs_path: "logs/"
